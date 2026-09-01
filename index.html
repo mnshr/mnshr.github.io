@@ -1,189 +1,598 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manish Hira | Executive Link Hub & AI Research</title>
+  <meta name="description" content="Executive portfolio, QuantSharpe AI research commentary, verified Career Vault dossier, academic CV, and professional links for Manish Hira.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070a12;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --bg-card-hover: rgba(30, 41, 59, 0.9);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(99, 102, 241, 0.4);
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --primary: #3b82f6;
+      --primary-light: #60a5fa;
+      --primary-glow: rgba(59, 130, 246, 0.25);
+      --accent-indigo: #6366f1;
+      --accent-purple: #8b5cf6;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
 
-  <head>
-	  <!-- Global site tag (gtag.js) - Google Analytics -->
-	  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114486606-2"></script>
-	  <script>
-  window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        gtag('config', 'UA-114486606-2');
-	  </script>
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(16, 185, 129, 0.1) 0px, transparent 50%);
+      background-attachment: fixed;
+      padding: 40px 20px 24px;
+    }
 
-	  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-	      google_ad_client: "ca-pub-2425809984435415",
-	          enable_page_level_ads: true
-			    });
-	  </script>
+    .container {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    /* Profile Header */
+    .profile-card {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 20px 12px;
+    }
 
-    <title>Data Analytics/Science Portfolio Machined Heuristics by Manish</title>
+    .avatar-wrapper {
+      position: relative;
+      margin-bottom: 16px;
+    }
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    .avatar {
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2563eb, #7c3aed, #059669);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 800;
+      color: #ffffff;
+      box-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
+      border: 3px solid rgba(255, 255, 255, 0.15);
+      letter-spacing: -0.04em;
+    }
 
-    <!-- Custom styles for this template -->
-    <link href="css/3-col-portfolio.css" rel="stylesheet">
+    .status-indicator {
+      position: absolute;
+      bottom: 2px;
+      right: 4px;
+      width: 18px;
+      height: 18px;
+      background: var(--accent-emerald);
+      border: 3px solid var(--bg);
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.8);
+    }
 
-  </head>
+    .name {
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
 
-  <body>
+    .headline {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      line-height: 1.4;
+      max-width: 540px;
+      margin-bottom: 14px;
+    }
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">Welcome to mnshr.github.io !!!</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="https://mnshr.github.io">home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://profiles.udacity.com/p/8306116746">about</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://twitter.com/mheurist">twitter</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://www.github.com/mnshr">git</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">contact</a>
-            </li>
-          </ul>
-        </div>
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-muted);
+      backdrop-filter: blur(8px);
+    }
+
+    .badge-ieee {
+      border-color: rgba(59, 130, 246, 0.4);
+      background: rgba(59, 130, 246, 0.12);
+      color: #93c5fd;
+    }
+
+    .badge-patent {
+      border-color: rgba(139, 92, 246, 0.4);
+      background: rgba(139, 92, 246, 0.12);
+      color: #c4b5fd;
+    }
+
+    .badge-c1 {
+      border-color: rgba(16, 185, 129, 0.4);
+      background: rgba(16, 185, 129, 0.12);
+      color: #6ee7b7;
+    }
+
+    /* Metrics Strip */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 8px;
+      text-align: center;
+      backdrop-filter: blur(12px);
+      transition: all 0.2s ease;
+    }
+
+    .metric-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+      background: var(--bg-card-hover);
+    }
+
+    .metric-val {
+      font-family: var(--font-mono);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .metric-lbl {
+      font-size: 0.68rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    /* Links Section */
+    .links-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-radius: 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      backdrop-filter: blur(12px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .link-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, rgba(255,255,255,0.03), transparent);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .link-card:hover {
+      transform: translateY(-2px);
+      background: var(--bg-card-hover);
+      border-color: var(--border-hover);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+    }
+
+    .link-card:hover::before {
+      opacity: 1;
+    }
+
+    .link-featured-vault {
+      border-color: rgba(59, 130, 246, 0.45);
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.35) 0%, rgba(15, 23, 42, 0.85) 100%);
+      box-shadow: 0 4px 20px rgba(37, 99, 235, 0.15);
+    }
+
+    .link-featured-vault:hover {
+      border-color: #60a5fa;
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+    }
+
+    .link-featured-blog {
+      border-color: rgba(139, 92, 246, 0.45);
+      background: linear-gradient(135deg, rgba(88, 28, 135, 0.35) 0%, rgba(15, 23, 42, 0.85) 100%);
+      box-shadow: 0 4px 20px rgba(139, 92, 246, 0.15);
+    }
+
+    .link-featured-blog:hover {
+      border-color: #c084fc;
+      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+    }
+
+    .link-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      z-index: 1;
+    }
+
+    .link-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .link-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .link-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .link-tag {
+      font-size: 0.65rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: var(--primary-glow);
+      color: var(--primary-light);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .link-tag-purple {
+      background: rgba(139, 92, 246, 0.2);
+      color: #c4b5fd;
+    }
+
+    .link-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .link-arrow {
+      font-size: 1.1rem;
+      color: var(--text-dim);
+      transition: transform 0.2s ease, color 0.2s ease;
+      z-index: 1;
+    }
+
+    .link-card:hover .link-arrow {
+      transform: translateX(4px);
+      color: #ffffff;
+    }
+
+    /* Career Summary Box */
+    .summary-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      backdrop-filter: blur(12px);
+    }
+
+    .summary-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--primary-light);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .summary-text {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .pillars {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .pillar-pill {
+      font-size: 0.72rem;
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: #cbd5e1;
+      font-family: var(--font-mono);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding-bottom: 24px;
+    }
+
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    footer a:hover {
+      color: var(--primary-light);
+      text-decoration: underline;
+    }
+
+    @media (max-width: 520px) {
+      .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .name {
+        font-size: 1.5rem;
+      }
+      .link-card {
+        padding: 14px 16px;
+      }
+      .link-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 1.15rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Profile Card -->
+    <div class="profile-card">
+      <div class="avatar-wrapper">
+        <div class="avatar">MH</div>
+        <div class="status-indicator" title="Active in Research & Leadership"></div>
       </div>
-    </nav>
-
-    <!-- Page Content -->
-    <div class="container">
-
-      <!-- Page Heading -->
-      <h1 class="my-4">Machined Heuristics
-        <small>by Manish</small>
-      </h1>
-
-      <div class="row">
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="htmls/dand-p2.html"><img class="card-img-top" src="./img/py-titanic.png" width="300" height="160" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="htmls/dand-p2.html">Exploring Survival on Titanic</a>
-              </h4>
-	      <p class="card-text"> <font size="2"> Posed a question about the Titanic passenger dataset, then used NumPy and Pandas to answer that question based on the data and created a report to share the results. Technologies: Python, NumPy, Pandas, Matplotlib, IPython notebook </font> </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="https://github.com/mnshr/Udacity-DA/blob/master/P5%20ML/Enron-ML-Report.pdf"><img class="card-img-top" src="https://4.bp.blogspot.com/-Gnyuqo_Fu-4/WBKPVq3w-YI/AAAAAAAAGOk/78PHY7uVICoh8RB2dCR2q1fcbwySdnLzACLcB/s1600/EnronT2.gif" width="300" height="160" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="https://github.com/mnshr/Udacity-DA/blob/master/P5%20ML/Enron-ML-Report.pdf">Using Machine Learning to Identify Fraud</a>
-              </h4>
-	      <p class="card-text"> <font size="2"> Utilizing machine-learning tools to build an algorithm to identify Enron employees who may have committed fraud based on the public Enron financial and email dataset. Explored five different algorithms (GaussianNB, Support Vector Machines, Decision Tree, K Neighbors, and Logit). Technologies: Python, scikit-learn, feature selection </font> </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="https://github.com/mnshr/Udacity-DA/tree/master/P3%20SQL"><img class="card-img-top" src="https://tr2.cbsistatic.com/hub/i/r/2014/07/09/bc4a094f-5bee-47a1-a462-47e3a4738515/resize/770x/63fd22f9dcd8595e09d970e69d51a96b/openstreetmaps-hero2.png" width="300" height="160" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="htmls/dand-p3.html">Wrangle OpenStreetMap Data</a>
-              </h4>
-	      <p class="card-text"> <font size="2"> Chose a region (Raleigh-Durham, NC) and used data munging techniques to assess the quality of the data for validity, accuracy, completeness, consistency and uniformity. Technologies: MySQL, Python, data cleaning, data verification </font> </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="https://github.com/mnshr/Udacity-DA/blob/master/P7%20AB/Report.pdf"><img class="card-img-top" src="https://res.cloudinary.com/dy8i0qezub/image/upload/glossary/ab-testing/ab-testing.png" width="300" height="160" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="https://github.com/mnshr/Udacity-DA/blob/master/P7%20AB/Report.pdf">Designing an A/B Test</a>
-              </h4>
-	      <p class="card-text"> <font size="2"> Designed an A/B test, including which metrics to measure and how long the test should be run. I also analyzed the results of an A/B test that was run by Udacity, recommended a decision, and proposed a follow-up experiment. Technologies: A/B test design, confidence intervals, hypothesis testing, binomial distribution </font> </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="htmls/dand-p4.html"><img class="card-img-top" src="https://assets.nerdwallet.com/blog/wp-content/uploads/2015/11/prosper-inline-320x180.jpg" width="300" height="160" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="https://github.com/mnshr/Udacity-DA/tree/master/P4%20R">Data Exploration using R</a>
-              </h4>
-	      <p class="card-text"> <font size="2"> Investigated the Prosper Loan dataset using R and exploratory data analysis techniques, exploring both single variables and relationships between variables. Technologies: R, RStudio, ggplot, exploratory data analysis </font> </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="https://github.com/mnshr/Stanford-ML"><img class="card-img-https://github.com/mnshr/Stanford-MLtop" src="img/ml-coursera.png" width="300" height="160" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="https://github.com/mnshr/Stanford-ML">Applied Machine Learning</a>
-              </h4>
-	      <p class="card-text"> <font size="2"> Implemented a K-means clustering algorithm and applied the algorithm to compress an image; used Principal Component Analysis to find low dimensional representation of face images. Developed an anomaly detection algorithm in server computers to detect any harmful behavior using Gaussian distribution. Technologies used: Matlab/Octave </font> </p>
-            </div>
-          </div>
-        </div>
+      <h1 class="name">Manish Hira</h1>
+      <p class="headline">Data Analysis Manager at Capital One &middot; PhD Candidate at VCU<br>IEEE Senior Member &middot; AI/ML Researcher</p>
+      <div class="badges">
+        <span class="badge badge-ieee">&#9733; IEEE Senior Member</span>
+        <span class="badge badge-patent">&#9881; 3 Granted Patents</span>
+        <span class="badge badge-c1">&#9878; CODiE &amp; IEEE Judge</span>
+        <span class="badge">&#128205; Richmond / DC Area</span>
       </div>
-      <!-- /.row -->
+    </div>
 
-      <!-- Pagination -->
-      <ul class="pagination justify-content-center">
-        <li class="page-item">
-          <a class="page-link" href="#" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-            <span class="sr-only">Previous</span>
-          </a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#">1</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="index2.html">2</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="index2.html" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-            <span class="sr-only">Next</span>
-          </a>
-        </li>
-      </ul>
+    <!-- Career Metrics Strip -->
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-val">18+</div>
+        <div class="metric-lbl">Years Exp</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">3</div>
+        <div class="metric-lbl">Patents</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">17+</div>
+        <div class="metric-lbl">Review Roles</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">63+</div>
+        <div class="metric-lbl">Exhibits</div>
+      </div>
+    </div>
+
+    <!-- Primary Links -->
+    <div class="links-section">
+
+      <!-- Career Vault Featured -->
+      <a href="career-vault/" class="link-card link-featured-vault">
+        <div class="link-left">
+          <div class="link-icon">&#127963;</div>
+          <div class="link-info">
+            <div class="link-title">
+              Executive Dossier &amp; Evidence Vault
+              <span class="link-tag">Interactive</span>
+            </div>
+            <div class="link-desc">Full EB-1A petition readiness matrix, verified exhibits, and impact metrics</div>
+          </div>
+        </div>
+        <div class="link-arrow">&rarr;</div>
+      </a>
+
+      <!-- QuantSharpe Blog Featured -->
+      <a href="https://www.quantsharpe.com" target="_blank" rel="noopener noreferrer" class="link-card link-featured-blog">
+        <div class="link-left">
+          <div class="link-icon">&#9997;&#65039;</div>
+          <div class="link-info">
+            <div class="link-title">
+              QuantSharpe &middot; AI Research Blog
+              <span class="link-tag link-tag-purple">Thought Leadership</span>
+            </div>
+            <div class="link-desc">Frontier AI/ML explainers, Causal XAI, Multi-Agent GRPO &amp; Financial AI</div>
+          </div>
+        </div>
+        <div class="link-arrow">&rarr;</div>
+      </a>
+
+      <!-- Academic CV -->
+      <a href="career-vault/mh_cv.pdf" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-left">
+          <div class="link-icon">&#128196;</div>
+          <div class="link-info">
+            <div class="link-title">Curriculum Vitae (CV)</div>
+            <div class="link-desc">Comprehensive academic, publications, and judging record (PDF)</div>
+          </div>
+        </div>
+        <div class="link-arrow">&rarr;</div>
+      </a>
+
+      <!-- Executive Resume -->
+      <a href="career-vault/mh_resume.pdf" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-left">
+          <div class="link-icon">&#128203;</div>
+          <div class="link-info">
+            <div class="link-title">Executive Resume</div>
+            <div class="link-desc">Industry-targeted AI/ML leadership and analytics resume (PDF)</div>
+          </div>
+        </div>
+        <div class="link-arrow">&rarr;</div>
+      </a>
+
+      <!-- LinkedIn -->
+      <a href="https://linkedin.com/in/mhira" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-left">
+          <div class="link-icon">&#128188;</div>
+          <div class="link-info">
+            <div class="link-title">LinkedIn Profile</div>
+            <div class="link-desc">Professional network, thought leadership, and career journey</div>
+          </div>
+        </div>
+        <div class="link-arrow">&rarr;</div>
+      </a>
+
+      <!-- Google Scholar -->
+      <a href="https://scholar.google.com/citations?user=XBCYoOUAAAAJ" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-left">
+          <div class="link-icon">&#127891;</div>
+          <div class="link-info">
+            <div class="link-title">Google Scholar</div>
+            <div class="link-desc">Scholarly publications, citations, and working research papers</div>
+          </div>
+        </div>
+        <div class="link-arrow">&rarr;</div>
+      </a>
+
+      <!-- GitHub -->
+      <a href="https://github.com/mnshr" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-left">
+          <div class="link-icon">&#128025;</div>
+          <div class="link-info">
+            <div class="link-title">GitHub</div>
+            <div class="link-desc">Open-source algorithms, research frameworks, and code repositories</div>
+          </div>
+        </div>
+        <div class="link-arrow">&rarr;</div>
+      </a>
+
+      <!-- Direct Contact -->
+      <a href="mailto:hiram@ieee.org" class="link-card">
+        <div class="link-left">
+          <div class="link-icon">&#9993;&#65039;</div>
+          <div class="link-info">
+            <div class="link-title">Contact &amp; Advisory Inquiries</div>
+            <div class="link-desc">hiram@ieee.org &middot; Direct communication</div>
+          </div>
+        </div>
+        <div class="link-arrow">&rarr;</div>
+      </a>
 
     </div>
-    <!-- /.container -->
+
+    <!-- Career Summary Card -->
+    <div class="summary-card">
+      <div class="summary-title">
+        <span>&#9889;</span> Executive Snapshot
+      </div>
+      <p class="summary-text">
+        18+ years of engineering, analytics, and AI/ML leadership across Capital One, Samsung Electronics, and Wipro. Co-inventor of 3 granted US/international patents and 18 patent filings. Published researcher in statistical machine learning, dimension reduction, and marketing analytics. Author of technical research commentary at QuantSharpe. IEEE Senior Member and peer reviewer / judge for national and international competitions.
+      </p>
+      <div class="pillars">
+        <span class="pillar-pill">Enterprise AI &amp; Agents</span>
+        <span class="pillar-pill">Statistical ML &amp; SDR</span>
+        <span class="pillar-pill">QuantSharpe AI Blog</span>
+        <span class="pillar-pill">Patent Portfolio Strategy</span>
+        <span class="pillar-pill">IEEE / CODiE Reviewer</span>
+      </div>
+    </div>
 
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; MH-Manish 2017</p>
+    <footer>
+      <div>&copy; 2026 Manish Hira. All rights reserved.</div>
+      <div>
+        <a href="legacy-projects.html">Legacy Data Science Projects Archive (2016&ndash;2017)</a>
       </div>
-      <!-- /.container -->
     </footer>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/popper/popper.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  </div>
 
-  </body>
-
+</body>
 </html>
