@@ -245,6 +245,17 @@
       opacity: 1;
     }
 
+    .link-featured-resume {
+      border-color: rgba(16, 185, 129, 0.45);
+      background: linear-gradient(135deg, rgba(6, 78, 59, 0.35) 0%, rgba(15, 23, 42, 0.85) 100%);
+      box-shadow: 0 4px 20px rgba(16, 185, 129, 0.15);
+    }
+
+    .link-featured-resume:hover {
+      border-color: #34d399;
+      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+    }
+
     .link-featured-vault {
       border-color: rgba(59, 130, 246, 0.45);
       background: linear-gradient(135deg, rgba(30, 58, 138, 0.35) 0%, rgba(15, 23, 42, 0.85) 100%);
@@ -310,6 +321,11 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
+    }
+
+    .link-tag-emerald {
+      background: rgba(16, 185, 129, 0.2);
+      color: #6ee7b7;
     }
 
     .link-tag-purple {
@@ -463,7 +479,46 @@
     <!-- Primary Links -->
     <div class="links-section">
 
-      <!-- Career Vault Featured -->
+      <!-- 1. Executive Resume (Top) -->
+      <a href="career-vault/mh_resume.pdf" target="_blank" rel="noopener noreferrer" class="link-card link-featured-resume">
+        <div class="link-left">
+          <div class="link-icon">&#128203;</div>
+          <div class="link-info">
+            <div class="link-title">
+              Executive Resume
+              <span class="link-tag link-tag-emerald">2-Page PDF</span>
+            </div>
+            <div class="link-desc">Industry-targeted AI/ML leadership and analytics resume</div>
+          </div>
+        </div>
+        <div class="link-arrow">&rarr;</div>
+      </a>
+
+      <!-- 2. Curriculum Vitae (CV) -->
+      <a href="career-vault/mh_cv.pdf" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-left">
+          <div class="link-icon">&#128196;</div>
+          <div class="link-info">
+            <div class="link-title">Curriculum Vitae (CV)</div>
+            <div class="link-desc">Comprehensive academic, publications, and judging record (PDF)</div>
+          </div>
+        </div>
+        <div class="link-arrow">&rarr;</div>
+      </a>
+
+      <!-- 3. LinkedIn Profile -->
+      <a href="https://linkedin.com/in/mhira" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-left">
+          <div class="link-icon">&#128188;</div>
+          <div class="link-info">
+            <div class="link-title">LinkedIn Profile</div>
+            <div class="link-desc">Professional network, thought leadership, and career journey</div>
+          </div>
+        </div>
+        <div class="link-arrow">&rarr;</div>
+      </a>
+
+      <!-- 4. Executive Dossier & Evidence Vault -->
       <a href="career-vault/" class="link-card link-featured-vault">
         <div class="link-left">
           <div class="link-icon">&#127963;</div>
@@ -478,7 +533,7 @@
         <div class="link-arrow">&rarr;</div>
       </a>
 
-      <!-- QuantSharpe Blog Featured -->
+      <!-- 5. QuantSharpe AI Research Blog -->
       <a href="https://www.quantsharpe.com" target="_blank" rel="noopener noreferrer" class="link-card link-featured-blog">
         <div class="link-left">
           <div class="link-icon">&#9997;&#65039;</div>
@@ -493,55 +548,7 @@
         <div class="link-arrow">&rarr;</div>
       </a>
 
-      <!-- Academic CV -->
-      <a href="career-vault/mh_cv.pdf" target="_blank" rel="noopener noreferrer" class="link-card">
-        <div class="link-left">
-          <div class="link-icon">&#128196;</div>
-          <div class="link-info">
-            <div class="link-title">Curriculum Vitae (CV)</div>
-            <div class="link-desc">Comprehensive academic, publications, and judging record (PDF)</div>
-          </div>
-        </div>
-        <div class="link-arrow">&rarr;</div>
-      </a>
-
-      <!-- Executive Resume -->
-      <a href="career-vault/mh_resume.pdf" target="_blank" rel="noopener noreferrer" class="link-card">
-        <div class="link-left">
-          <div class="link-icon">&#128203;</div>
-          <div class="link-info">
-            <div class="link-title">Executive Resume</div>
-            <div class="link-desc">Industry-targeted AI/ML leadership and analytics resume (PDF)</div>
-          </div>
-        </div>
-        <div class="link-arrow">&rarr;</div>
-      </a>
-
-      <!-- LinkedIn -->
-      <a href="https://linkedin.com/in/mhira" target="_blank" rel="noopener noreferrer" class="link-card">
-        <div class="link-left">
-          <div class="link-icon">&#128188;</div>
-          <div class="link-info">
-            <div class="link-title">LinkedIn Profile</div>
-            <div class="link-desc">Professional network, thought leadership, and career journey</div>
-          </div>
-        </div>
-        <div class="link-arrow">&rarr;</div>
-      </a>
-
-      <!-- Google Scholar -->
-      <a href="https://scholar.google.com/citations?user=XBCYoOUAAAAJ" target="_blank" rel="noopener noreferrer" class="link-card">
-        <div class="link-left">
-          <div class="link-icon">&#127891;</div>
-          <div class="link-info">
-            <div class="link-title">Google Scholar</div>
-            <div class="link-desc">Scholarly publications, citations, and working research papers</div>
-          </div>
-        </div>
-        <div class="link-arrow">&rarr;</div>
-      </a>
-
-      <!-- GitHub -->
+      <!-- 6. GitHub -->
       <a href="https://github.com/mnshr" target="_blank" rel="noopener noreferrer" class="link-card">
         <div class="link-left">
           <div class="link-icon">&#128025;</div>
@@ -553,7 +560,19 @@
         <div class="link-arrow">&rarr;</div>
       </a>
 
-      <!-- Direct Contact -->
+      <!-- 7. Google Scholar -->
+      <a href="https://scholar.google.com/citations?user=XBCYoOUAAAAJ" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-left">
+          <div class="link-icon">&#127891;</div>
+          <div class="link-info">
+            <div class="link-title">Google Scholar</div>
+            <div class="link-desc">Scholarly publications, citations, and working research papers</div>
+          </div>
+        </div>
+        <div class="link-arrow">&rarr;</div>
+      </a>
+
+      <!-- 8. Direct Contact -->
       <a href="mailto:hiram@ieee.org" class="link-card">
         <div class="link-left">
           <div class="link-icon">&#9993;&#65039;</div>
