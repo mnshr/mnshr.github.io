@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manish Hira • Custom LinkedIn QR Codes &amp; Slide Cards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: #111827;
+      --border: rgba(255, 255, 255, 0.08);
+      --accent: #38bdf8;
+      --linkedin: #0a66c2;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 40px 20px;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .pill-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+    h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #ffffff 40%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p.lead {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 20px;
+    }
+    .url-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #1e293b;
+      border: 1px solid var(--border);
+      padding: 8px 18px;
+      border-radius: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.95rem;
+      color: #38bdf8;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .url-badge:hover {
+      border-color: #38bdf8;
+      transform: translateY(-1px);
+    }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 40px 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .qr-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .qr-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.5);
+    }
+    .qr-preview {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      padding: 16px;
+      overflow: hidden;
+    }
+    .qr-preview.white-bg { background: #ffffff; }
+    .qr-preview.dark-bg { background: #0f172a; border: 1px solid rgba(255, 255, 255, 0.05); }
+    .qr-preview.checker-bg {
+      background-color: #1e293b;
+      background-image: linear-gradient(45deg, #182234 25%, transparent 25%),
+                        linear-gradient(-45deg, #182234 25%, transparent 25%),
+                        linear-gradient(45deg, transparent 75%, #182234 75%),
+                        linear-gradient(-45deg, transparent 75%, #182234 75%);
+      background-size: 16px 16px;
+      background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+    }
+    .qr-preview img, .qr-preview svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    .qr-info {
+      width: 100%;
+      text-align: left;
+    }
+    .qr-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .qr-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      min-height: 40px;
+    }
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+    }
+    .btn {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 9px 12px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .btn-svg {
+      background: rgba(56, 189, 248, 0.12);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    .btn-svg:hover {
+      background: rgba(56, 189, 248, 0.22);
+    }
+    .btn-png {
+      background: #1e293b;
+      color: #f8fafc;
+      border: 1px solid var(--border);
+    }
+    .btn-png:hover {
+      background: #334155;
+    }
+    .slide-showcase {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px;
+      margin-bottom: 40px;
+    }
+    .slide-preview-frame {
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-bottom: 20px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+    }
+    .slide-preview-frame svg, .slide-preview-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .tips-box {
+      background: rgba(10, 102, 194, 0.1);
+      border: 1px solid rgba(10, 102, 194, 0.25);
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 40px;
+    }
+    .tips-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tips-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .tips-item {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .tips-item strong {
+      color: #f8fafc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="pill"><span class="pill-dot"></span> Presentation Ready</div>
+      <h1>Custom LinkedIn QR Suite</h1>
+      <p class="lead">Engineered for keynote slides, conference presentations, academic posters, and executive pitch decks with instant phone camera scannability.</p>
+      <a href="https://linkedin.com/in/mhira" target="_blank" rel="noopener noreferrer" class="url-badge">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#0A66C2"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.69 1.69 0 1 0-.01-3.38 1.69 1.69 0 0 0 .01 3.38m1.4 9.74v-8.37H5.06v8.37h2.8z"/></svg>
+        https://linkedin.com/in/mhira
+      </a>
+    </header>
+
+    <div class="section-title">Standalone QR Code Variants</div>
+    <div class="grid-cards">
+      <!-- 1. Brand Blue -->
+      <div class="qr-card">
+        <div class="qr-preview white-bg">
+          <img src="assets/qr/linkedin_qr_brand_blue.svg" alt="LinkedIn QR Code Brand Blue">
+        </div>
+        <div class="qr-info">
+          <div class="qr-title">Official Brand Blue</div>
+          <div class="qr-desc">Classic LinkedIn Blue (#0A66C2) on crisp white. Ideal for light theme slide decks.</div>
+          <div class="btn-group">
+            <a href="assets/qr/linkedin_qr_brand_blue.svg" download class="btn btn-svg">Download SVG</a>
+            <a href="assets/qr/linkedin_qr_brand_blue.png" download class="btn btn-png">PNG (2.4K)</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Transparent -->
+      <div class="qr-card">
+        <div class="qr-preview checker-bg">
+          <img src="assets/qr/linkedin_qr_transparent.svg" alt="LinkedIn QR Code Transparent">
+        </div>
+        <div class="qr-info">
+          <div class="qr-title">Transparent Background</div>
+          <div class="qr-desc">Zero background fill. Drops seamlessly over any custom presentation background or gradient.</div>
+          <div class="btn-group">
+            <a href="assets/qr/linkedin_qr_transparent.svg" download class="btn btn-svg">Download SVG</a>
+            <a href="assets/qr/linkedin_qr_transparent.png" download class="btn btn-png">PNG (2.4K)</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Dark Mode -->
+      <div class="qr-card">
+        <div class="qr-preview dark-bg">
+          <img src="assets/qr/linkedin_qr_dark_mode.svg" alt="LinkedIn QR Code Dark Mode">
+        </div>
+        <div class="qr-info">
+          <div class="qr-title">Executive Dark Slate</div>
+          <div class="qr-desc">Sky Cyan modules (#38BDF8) on Dark Slate (#0F172A). Tuned for modern dark conference decks.</div>
+          <div class="btn-group">
+            <a href="assets/qr/linkedin_qr_dark_mode.svg" download class="btn btn-svg">Download SVG</a>
+            <a href="assets/qr/linkedin_qr_dark_mode.png" download class="btn btn-png">PNG (2.4K)</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Monochrome -->
+      <div class="qr-card">
+        <div class="qr-preview white-bg">
+          <img src="assets/qr/linkedin_qr_clean_black.svg" alt="LinkedIn QR Code Monochrome">
+        </div>
+        <div class="qr-info">
+          <div class="qr-title">Graphite Monochrome</div>
+          <div class="qr-desc">High-contrast deep slate (#111827) on pure white. Timeless, clean, and ultra-scannable.</div>
+          <div class="btn-group">
+            <a href="assets/qr/linkedin_qr_clean_black.svg" download class="btn btn-svg">Download SVG</a>
+            <a href="assets/qr/linkedin_qr_clean_black.png" download class="btn btn-png">PNG (2.4K)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">Ready-to-Paste 16:9 Slide Cards</div>
+    <div class="slide-showcase">
+      <h3 style="margin-bottom: 12px; font-size: 1.25rem;">Dark Theme Presentation Card (16:9 Widescreen)</h3>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">Complete closing / Q&amp;A slide component ready to drop into Keynote, PowerPoint, or Google Slides.</p>
+      <div class="slide-preview-frame">
+        <img src="assets/qr/linkedin_slide_card_dark.svg" alt="Dark Presentation Slide Card">
+      </div>
+      <div class="btn-group" style="max-width: 380px;">
+        <a href="assets/qr/linkedin_slide_card_dark.svg" download class="btn btn-svg">Download Slide Card SVG</a>
+      </div>
+    </div>
+
+    <div class="slide-showcase">
+      <h3 style="margin-bottom: 12px; font-size: 1.25rem;">Light Theme Presentation Card (16:9 Widescreen)</h3>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">Clean executive light theme card formatted with full metadata, title, and clear scanning call-to-action.</p>
+      <div class="slide-preview-frame">
+        <img src="assets/qr/linkedin_slide_card_light.svg" alt="Light Presentation Slide Card">
+      </div>
+      <div class="btn-group" style="max-width: 380px;">
+        <a href="assets/qr/linkedin_slide_card_light.svg" download class="btn btn-svg">Download Slide Card SVG</a>
+      </div>
+    </div>
+
+    <div class="tips-box">
+      <div class="tips-title">💡 Presentation Best Practices for QR Codes</div>
+      <div class="tips-list">
+        <div class="tips-item">
+          <strong>Use SVG in Keynote / PowerPoint:</strong> Drag and drop the <code>.svg</code> file directly into your slide editor. It stays razor sharp at any projection scale (4K/8K).
+        </div>
+        <div class="tips-item">
+          <strong>Screen Projection Size:</strong> Ensure the QR code occupies at least 200–250 pixels on screen so attendees in the back row can scan it effortlessly.
+        </div>
+        <div class="tips-item">
+          <strong>Error Correction Level H:</strong> Built with 30% Reed-Solomon recovery capacity, guaranteeing rapid scan recognition even with the center LinkedIn badge.
+        </div>
+        <div class="tips-item">
+          <strong>Keep Margin Intact:</strong> The quiet zone (white/dark padding) around the code is crucial for optical sensor edge-detection. Do not crop the borders.
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
