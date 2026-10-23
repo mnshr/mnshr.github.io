@@ -1068,14 +1068,60 @@
         <a href="index.html" style="color: var(--primary-light);">EB-1A Portal</a> &middot;
         <a href="https://www.quantsharpe.com" target="_blank" style="color: var(--primary-light);">QuantSharpe Research</a>
       </p>
-      <div style="margin-top: 14px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 6px 14px; font-size: 0.76rem; font-family: var(--font-mono); color: var(--text-muted);">
+      <div id="telemetry-badge" style="margin-top: 14px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 6px 14px; font-size: 0.76rem; font-family: var(--font-mono); color: var(--text-muted);">
         <span style="display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #a78bfa; box-shadow: 0 0 8px #a78bfa;"></span>
         <span>Dossier Telemetry:</span>
-        <img src="https://komarev.com/ghpvc/?username=mnshr-career-vault-o1&label=Verified+Views&color=8b5cf6&style=flat-square&base=850" alt="O-1A Dossier Views Counter" style="vertical-align: middle; border-radius: 3px; height: 20px;" loading="lazy" />
+        <span style="background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.35); color: #c4b5fd; padding: 2px 8px; border-radius: 4px; font-weight: 600;">
+          👁️ <span id="telemetry-count">850</span> Verified Views
+        </span>
         <span style="color: var(--text-dim); font-size: 0.72rem;">· TLS Encrypted Host</span>
       </div>
     </div>
   </footer>
+
+  <script>
+    // Real-Time View Counter with Owner-Exclusion Mode
+    (function() {
+      const BASELINE = 850;
+      const COUNTER_KEY = 'mnshr_o1a_dossier_views';
+      
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('owner') === 'true' || window.location.hash === '#owner') {
+        localStorage.setItem('cv_owner_mode', 'true');
+      } else if (urlParams.get('owner') === 'false' || window.location.hash === '#visitor') {
+        localStorage.removeItem('cv_owner_mode');
+      }
+
+      const isLocal = ['localhost', '127.0.0.1', ''].includes(window.location.hostname);
+      const isOwner = localStorage.getItem('cv_owner_mode') === 'true' || isLocal;
+
+      const countSpan = document.getElementById('telemetry-count');
+      const badgeContainer = document.getElementById('telemetry-badge');
+
+      const endpoint = isOwner
+        ? `https://countapi.mileshilliard.com/api/v1/get/${COUNTER_KEY}`
+        : `https://countapi.mileshilliard.com/api/v1/hit/${COUNTER_KEY}`;
+
+      fetch(endpoint)
+        .then(r => r.json())
+        .then(data => {
+          if (data && typeof data.value === 'number') {
+            const total = BASELINE + data.value;
+            if (countSpan) countSpan.textContent = total.toLocaleString();
+            if (isOwner && badgeContainer) {
+              badgeContainer.title = "Owner Mode: Your visits are excluded from view counts. Visit ?owner=false to exit.";
+              const tag = document.createElement('span');
+              tag.style.cssText = "color: #34d399; font-size: 0.68rem; margin-left: 4px; font-weight: 500;";
+              tag.textContent = "● (Owner Mode · Counter Paused)";
+              badgeContainer.appendChild(tag);
+            }
+          }
+        })
+        .catch(() => {
+          if (countSpan) countSpan.textContent = BASELINE.toLocaleString() + '+';
+        });
+    })();
+  </script>
 
 </body>
 </html>

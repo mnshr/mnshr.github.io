@@ -658,13 +658,58 @@
       <div>
         <a href="legacy-projects.html">Legacy Data Science Projects Archive (2016&ndash;2017)</a>
       </div>
-      <div style="margin-top: 10px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 5px 12px; font-size: 0.74rem; font-family: var(--font-mono); color: var(--text-muted);">
+      <div id="telemetry-badge" style="margin-top: 10px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 5px 12px; font-size: 0.74rem; font-family: var(--font-mono); color: var(--text-muted);">
         <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #10b981; box-shadow: 0 0 6px #10b981;"></span>
         <span>Executive Hub Telemetry:</span>
-        <img src="https://komarev.com/ghpvc/?username=mnshr-portfolio-hub&label=Verified+Views&color=3b82f6&style=flat-square&base=2100" alt="Executive Hub Views Counter" style="vertical-align: middle; border-radius: 3px; height: 18px;" loading="lazy" />
+        <span style="background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.35); color: #60a5fa; padding: 2px 8px; border-radius: 4px; font-weight: 600;">
+          👁️ <span id="telemetry-count">2,100</span> Verified Views
+        </span>
         <span style="color: var(--text-dim); font-size: 0.70rem;">· TLS Encrypted Host</span>
       </div>
     </footer>
+
+    <script>
+      (function() {
+        const BASELINE = 2100;
+        const COUNTER_KEY = 'mnshr_landing_hub_views';
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('owner') === 'true' || window.location.hash === '#owner') {
+          localStorage.setItem('cv_owner_mode', 'true');
+        } else if (urlParams.get('owner') === 'false' || window.location.hash === '#visitor') {
+          localStorage.removeItem('cv_owner_mode');
+        }
+
+        const isLocal = ['localhost', '127.0.0.1', ''].includes(window.location.hostname);
+        const isOwner = localStorage.getItem('cv_owner_mode') === 'true' || isLocal;
+
+        const countSpan = document.getElementById('telemetry-count');
+        const badgeContainer = document.getElementById('telemetry-badge');
+
+        const endpoint = isOwner
+          ? `https://countapi.mileshilliard.com/api/v1/get/${COUNTER_KEY}`
+          : `https://countapi.mileshilliard.com/api/v1/hit/${COUNTER_KEY}`;
+
+        fetch(endpoint)
+          .then(r => r.json())
+          .then(data => {
+            if (data && typeof data.value === 'number') {
+              const total = BASELINE + data.value;
+              if (countSpan) countSpan.textContent = total.toLocaleString();
+              if (isOwner && badgeContainer) {
+                badgeContainer.title = "Owner Mode: Your visits are excluded from view counts. Visit ?owner=false to exit.";
+                const tag = document.createElement('span');
+                tag.style.cssText = "color: #34d399; font-size: 0.68rem; margin-left: 4px; font-weight: 500;";
+                tag.textContent = "● (Owner Mode · Counter Paused)";
+                badgeContainer.appendChild(tag);
+              }
+            }
+          })
+          .catch(() => {
+            if (countSpan) countSpan.textContent = BASELINE.toLocaleString() + '+';
+          });
+      })();
+    </script>
 
   </div>
 
