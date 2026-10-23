@@ -662,7 +662,7 @@
         <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #10b981; box-shadow: 0 0 6px #10b981;"></span>
         <span>Executive Hub Telemetry:</span>
         <span style="background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.35); color: #60a5fa; padding: 2px 8px; border-radius: 4px; font-weight: 600;">
-          👁️ <span id="telemetry-count">2,100</span> Verified Views
+          👁️ <span id="telemetry-count">0</span> Verified Views
         </span>
         <span style="color: var(--text-dim); font-size: 0.70rem;">· TLS Encrypted Host</span>
       </div>
@@ -670,7 +670,6 @@
 
     <script>
       (function() {
-        const BASELINE = 2100;
         const COUNTER_KEY = 'mnshr_landing_hub_views';
         
         const urlParams = new URLSearchParams(window.location.search);
@@ -694,7 +693,7 @@
           .then(r => r.json())
           .then(data => {
             if (data && typeof data.value === 'number') {
-              const total = BASELINE + data.value;
+              const total = data.value;
               if (countSpan) countSpan.textContent = total.toLocaleString();
               if (isOwner && badgeContainer) {
                 badgeContainer.title = "Owner Mode: Your visits are excluded from view counts. Visit ?owner=false to exit.";
@@ -706,7 +705,7 @@
             }
           })
           .catch(() => {
-            if (countSpan) countSpan.textContent = BASELINE.toLocaleString() + '+';
+            if (countSpan) countSpan.textContent = '0';
           });
       })();
     </script>

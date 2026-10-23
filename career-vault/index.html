@@ -2030,7 +2030,7 @@
         <span style="display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981;"></span>
         <span>Dossier Telemetry:</span>
         <span style="background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.35); color: #60a5fa; padding: 2px 8px; border-radius: 4px; font-weight: 600;">
-          👁️ <span id="telemetry-count">1,250</span> Verified Views
+          👁️ <span id="telemetry-count">0</span> Verified Views
         </span>
         <span style="color: var(--text-dim); font-size: 0.72rem;">· TLS Encrypted Host</span>
       </div>
@@ -2054,7 +2054,6 @@
 
     // Real-Time View Counter with Owner-Exclusion Mode
     (function() {
-      const BASELINE = 1250;
       const COUNTER_KEY = 'mnshr_career_vault_views';
       
       const urlParams = new URLSearchParams(window.location.search);
@@ -2078,7 +2077,7 @@
         .then(r => r.json())
         .then(data => {
           if (data && typeof data.value === 'number') {
-            const total = BASELINE + data.value;
+            const total = data.value;
             if (countSpan) countSpan.textContent = total.toLocaleString();
             if (isOwner && badgeContainer) {
               badgeContainer.title = "Owner Mode: Your visits are excluded from view counts. Visit ?owner=false to exit.";
@@ -2090,7 +2089,7 @@
           }
         })
         .catch(() => {
-          if (countSpan) countSpan.textContent = BASELINE.toLocaleString() + '+';
+          if (countSpan) countSpan.textContent = '0';
         });
     })();
   </script>
